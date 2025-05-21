@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyvä ajatus</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 300px; /* Voit muuttaa tätä arvoa kuvan koon säätämiseksi */
+            height: 300px;
+            animation: heart-beat 2s infinite alternate;
+        }
+
+        .heart-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .heart-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        @keyframes heart-beat {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsiivisuus */
+        @media (max-width: 600px) {
+            .heart-container {
+                width: 200px;
+                height: 200px;
+            }
+            .heart-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="heart-container">
+    <img src="Heart.png" alt="Heart" class="heart-image">
+    <div class="heart-text" id="positivityMessage">Hyvä ajatus</div>
+</div>
+
+<script>
+    const messages = [
+        "Rakasta itseäsi joka päivä.",
+        "Olet ainutlaatuinen juuri sellaisena kuin olet.",
+        "Positiivisuus tekee päivistä valoisia.",
+        "Usko unelmiisi ja tavoittele niitä.",
+        "Jokainen päivä on mahdollisuus uuteen alkuun.",
+        "Kiitä pienistäkin saavutuksista.",
+        "Levitä ympärillesi iloa ja hyvää mieltä.",
+        "Olet voimakkaampi kuin uskotkaan.",
+        "Anna rakkauden ohjata sinua.",
+        "Hymyile, se tekee päivästäsi paremman.",
+        "Anna itsellesi lupa loistaa.",
+        "Elämä on täynnä mahdollisuuksia.",
+        "Ole ystävällinen, se muuttaa maailmaa.",
+        "Arvosta jokaista hetkeä.",
+        "Olet arvokas ja rakastettava.",
+        "Anna positiivisuuden voimistaa sinua.",
+        "Tee asioita, jotka saavat sydämesi sykkimään.",
+        "Uskalla unelmoida suuria.",
+        "Ole rohkea ja seuraa sydämesi ääntä.",
+        "Anna rakkauden ohjata jokaista tekoasi."
+    ];
+
+    function getRandomMessage() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+    }
+
+    // Arvotaan satunnainen lause ja lisätään se tekstiin
+    document.getElementById('positivityMessage').textContent = getRandomMessage();
+</script>
+
+</body>
+</html>
